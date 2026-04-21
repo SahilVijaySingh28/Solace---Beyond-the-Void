@@ -168,6 +168,27 @@ Solace is optimized for **one-click Vercel deployment**.
 
 ---
 
+## 🐳 Docker Support
+
+Solace includes a production-ready, multi-stage Docker setup using Node for building and NGINX for ultra-fast asset serving. The NGINX configuration automatically handles SPA Fallback routing.
+
+### 1. Build the Image
+```bash
+docker build -t solace-app .
+```
+
+### 2. Run the Container
+```bash
+docker run -p 8080:80 -d solace-app
+```
+
+The application will be live at `http://localhost:8080`.
+
+> **Note on Environment Variables:** 
+> Your local `.env` file is intentionally read during the Docker build process. Vite requires your `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` at *build time* to compile the static frontend assets. Ensure your `.env` file is fully populated before executing `docker build`.
+
+---
+
 ## 🔐 Security Architecture
 
 - **Client-Side Encryption**: The Void Vault uses `PBKDF2` (100,000 iterations, SHA-256) for key derivation and `AES-GCM 256-bit` for encryption. All cryptographic operations happen in the browser via the native **Web Crypto API**. The plaintext content **never reaches the server**.
