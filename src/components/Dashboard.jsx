@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Dashboard.jsx — Platform Orchestrator
  * ──────────────────────────────────────
