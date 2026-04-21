@@ -36,3 +36,11 @@ jobs:
           # Providing placeholder env vars to prevent any build warnings from Vite
           VITE_SUPABASE_URL: https://placeholder.supabase.co
           VITE_SUPABASE_ANON_KEY: placeholder-key
+
+      - name: Create mock .env for Docker 
+        run: |
+          echo "VITE_SUPABASE_URL=https://placeholder.supabase.co" > .env
+          echo "VITE_SUPABASE_ANON_KEY=placeholder-key" >> .env
+
+      - name: Test Docker Build
+        run: docker build -t solace-app-ci-test .

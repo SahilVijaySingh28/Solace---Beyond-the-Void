@@ -12,7 +12,8 @@
 
 ## 🚀 Live Platform
 
-> Deploy your own instance by following the [Deployment](#deployment) section below.
+> [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen?style=for-the-badge&logo=vercel)](https://solace-beyond-the-void.vercel.app/)
+
 
 ---
 
