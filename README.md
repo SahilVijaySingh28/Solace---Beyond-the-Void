@@ -190,6 +190,20 @@ The application will be live at `http://localhost:8080`.
 
 ---
 
+## ⚙️ Continuous Integration (CI)
+
+This project uses **GitHub Actions** to automatically lint and test-build the codebase on every push and pull request to the `main` branch. 
+
+The CI pipeline runs securely on **Node.js 20.x** and performs the following checks:
+1. Strict dependency installation (`npm ci`)
+2. ESLint code-quality verification (`npm run lint`)
+3. Vite production bundle verification (`npm run build`)
+4. Docker container build verification (`docker build`)
+
+Vercel inherently acts as the **Continuous Deployment (CD)** engine by listening to successful pushes to the main branch and automatically publishing the site globally.
+
+---
+
 ## 🔐 Security Architecture
 
 - **Client-Side Encryption**: The Void Vault uses `PBKDF2` (100,000 iterations, SHA-256) for key derivation and `AES-GCM 256-bit` for encryption. All cryptographic operations happen in the browser via the native **Web Crypto API**. The plaintext content **never reaches the server**.
